@@ -1,31 +1,19 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import { signUpValidation } from "./validation";
+import { loginValidation } from "./validation";
 import { Link } from "react-router";
 
-const SignUp = () => {
+const Login = () => {
   return (
     <div className="signUp h-dvh flex justify-center items-center">
       <Formik
         initialValues={{
-          fullName: "",
           email: "",
           password: "",
-          confirmPassword: "",
         }}
-        validationSchema={signUpValidation}
+        validationSchema={loginValidation}
       >
-        <Form className="min-w-120 p-8 flex flex-col gap-3 rounded-2xl bg-[#ccc]">
-          <p className="mb-4 text-3xl text-center font-bold">Sign Up</p>
-          <Field
-            name="fullName"
-            placeholder="Full Name ....."
-            className="px-5 py-3 outline-0 rounded-lg bg-white"
-          />
-          <ErrorMessage
-            name="fullName"
-            component={`div`}
-            className="text-red-600 font-bold"
-          />
+        <Form className="max-w-100 w-[90%] p-8 flex flex-col gap-3 rounded-2xl bg-[#ccc]">
+          <p className="mb-4 text-3xl text-center font-bold">Login</p>
           <Field
             name="email"
             placeholder="Email ....."
@@ -47,17 +35,6 @@ const SignUp = () => {
             component={`div`}
             className="text-red-600 font-bold"
           />
-          <Field
-            type="password"
-            name="confirmPassword"
-            placeholder="Confirm Password ....."
-            className="px-5 py-3 outline-0 rounded-lg bg-white"
-          />
-          <ErrorMessage
-            name="confirmPassword"
-            component={`div`}
-            className="text-red-600 font-bold"
-          />
           <button
             type="submit"
             className="px-5 py-3 font-bold rounded-lg bg-green-500 cursor-pointer"
@@ -65,9 +42,9 @@ const SignUp = () => {
             submit
           </button>
           <p className="mx-0 my-3.5 text-center font-bold">
-            I Alrady Have An Account |{" "}
-            <Link to={"/login"} className="underline text-blue-600">
-              Login
+            I Don't Have An Account |{" "}
+            <Link to={"/signUp"} className="underline text-blue-600">
+              Sign Up
             </Link>
           </p>
         </Form>
@@ -76,4 +53,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;
